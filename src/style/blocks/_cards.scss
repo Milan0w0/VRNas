@@ -1,0 +1,52 @@
+@use '../helpers' as *;
+
+.cards {
+    --columns: 3;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    align-items: start;
+    gap: rem(30);
+    
+    @include laptop {
+        --columns: 2;
+    }
+
+    @include tablet {
+        --columns: 1;
+    }
+
+    &__card {
+        @include border-light;
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-self: start;
+        
+        row-gap: var(--padding-block-y);
+        width: 100%;
+        height: rem(291);
+        padding: rem(38) rem(39) rem(25) rem(32);
+        background-color: var(--color-dark-blue);
+
+        @include desktop {
+            padding: rem(25);
+        }
+
+        @include hover {
+            @include border-gradient;
+        }
+        
+        &-icon {
+            margin-bottom: rem(48);
+        }
+
+        &-description {
+            max-height: rem(84);
+            overflow: hidden;
+        }
+    }
+}
+
+
